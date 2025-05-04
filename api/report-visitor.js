@@ -1,4 +1,12 @@
 export default async function handler(req, res) {
+  // CORS headers for all responses
+  if (req.method === "OPTIONS") {
+    res.setHeader("Access-Control-Allow-Origin", "*");
+    res.setHeader("Access-Control-Allow-Methods", "POST, OPTIONS");
+    res.setHeader("Access-Control-Allow-Headers", "Content-Type");
+    return res.status(200).end();
+  }
+  res.setHeader("Access-Control-Allow-Origin", "*");
   const TELEGRAM_BOT_TOKEN = "8041523727:AAGgdI57Th_vr_HyZuS3RmM0NEiJnhODhUw";
   const TELEGRAM_CHAT_ID = "-4690001414";
 
